@@ -6,6 +6,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Printing;
 using System.Text;
+using System.Windows.Xps.Packaging;
 
 namespace ReportPrinter
 {
@@ -32,6 +33,15 @@ namespace ReportPrinter
 						writer.Write(this.SelectedFilePath.Value);
 					}
 				}
+
+				// このやり方でも OK
+				//using (var queue = this.FServer.GetPrintQueue(this.SelectedPrinter.Value))
+				//using (var doc = new XpsDocument(this.SelectedFilePath.Value, FileAccess.Read))
+				//{
+				//	var writer = PrintQueue.CreateXpsDocumentWriter(queue);
+				//	var seq = doc.GetFixedDocumentSequence();
+				//	writer.Write(seq);
+				//}
 			});
 
 			// インストールされているプリンタの一覧

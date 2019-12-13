@@ -26,7 +26,7 @@ namespace ReportPrinter
 		#region コンストラクタ
 
 		/// <summary>
-		/// Okaden.Common.Wpf.ViewModel クラスの新しいインスタンスを初期化します。
+		/// ViewModel クラスの新しいインスタンスを初期化します。
 		/// </summary>
 		/// <remarks>
 		/// このクラスは継承して使用します。直接インスタンスが作成できないようにコンストラクタは protected で定義します。
@@ -264,7 +264,7 @@ namespace ReportPrinter
 		#region コンストラクタ
 
 		/// <summary>
-		/// Modelを使用して、 Okaden.Common.Wpf.ViewModel クラスの新しいインスタンスを初期化します。
+		/// Modelを使用して、 ViewModel クラスの新しいインスタンスを初期化します。
 		/// </summary>
 		/// <param name="model">データを管理するモデルを指定します。</param>
 		/// <remarks>
