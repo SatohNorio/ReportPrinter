@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace ReportPrinter
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for ReportPrinterView.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class ReportPrinterView : Window
 	{
-		public MainWindow()
+		#region コンストラクタ
+
+		/// <summary>
+		/// 新しいウィンドウを生成します。
+		/// </summary>
+		public ReportPrinterView()
 		{
-			InitializeComponent();
+			this.InitializeComponent();
 		}
+
+		#endregion コンストラクタ
 	}
 }

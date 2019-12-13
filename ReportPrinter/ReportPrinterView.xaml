@@ -1,0 +1,67 @@
+﻿<Window
+    x:Class="ReportPrinter.ReportPrinterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ReportPrinter"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ReportPrinter"
+    Width="800"
+    Height="600"
+    d:DataContext="{d:DesignInstance Type=local:ReportPrinterViewModel}"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:ReportPrinterViewModel />
+    </Window.DataContext>
+    <DockPanel>
+        <DockPanel LastChildFill="False">
+            <StackPanel
+                Margin="5"
+                DockPanel.Dock="Top"
+                Orientation="Horizontal">
+                <Label Content="プリンタ名" />
+                <ComboBox ItemsSource="{Binding PrinterCollection}" SelectedItem="{Binding SelectedPrinter.Value, Mode=TwoWay}" />
+            </StackPanel>
+            <DockPanel Margin="5" DockPanel.Dock="Top">
+                <Label VerticalAlignment="Center" Content="ファイル名" />
+                <Button
+                    Margin="0,5"
+                    Padding="10,5"
+                    Content="参照..."
+                    DockPanel.Dock="Right">
+                    <Button.Command>
+                        <local:OpenFileDialogCommand
+                            x:Name="NDialog"
+                            Title="印刷するファイルを選択する"
+                            FileName="{Binding SelectedFilePath.Value, Mode=TwoWay}"
+                            Filter="XPS ファイル (*.xps)|*.xps|すべてのファイル (*.*)|*.*" />
+                    </Button.Command>
+                </Button>
+                <TextBox Margin="5" Text="{Binding SelectedFilePath.Value, Mode=TwoWay}" />
+            </DockPanel>
+            <DockPanel
+                Margin="5"
+                DockPanel.Dock="Top"
+                LastChildFill="False">
+                <Button
+                    Padding="40,15"
+                    Content="印刷"
+                    DockPanel.Dock="Right">
+                    <Button.Command>
+                        <local:DelegateCommand ExecutingAction="{Binding PrintAction}" />
+                    </Button.Command>
+                </Button>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Right">
+            <Label Content="ReactiveProperty" DockPanel.Dock="Top" />
+            <Label>
+                <Label.Content>
+                    <Viewbox>
+                        <Label Content="{Binding License.Value}" />
+                    </Viewbox>
+                </Label.Content>
+            </Label>
+        </DockPanel>
+    </DockPanel>
+</Window>
